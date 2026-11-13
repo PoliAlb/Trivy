@@ -48,6 +48,7 @@ docker run --rm -v "$PWD":/work -v trivy-cache:/home/trivy/.cache/trivy \
 
 # Repository Git remoto
 trivy repo https://github.com/utente/repo
+trivy repo --scanners vuln,secret,misconfig,license --license-full --include-dev-deps --dependency-tree --detection-priority comprehensive --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL https://github.com/utente/repo 
 
 # Solo secret
 docker run --rm -v "$PWD":/work -v trivy-cache:/home/trivy/.cache/trivy \
